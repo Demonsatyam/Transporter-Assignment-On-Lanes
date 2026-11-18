@@ -1,0 +1,19 @@
+# Build output
+target/
+*.class
+*.log
+
+# Secrets
+.env
+!.env.example
+
+# IDE
+.idea/
+*.iml
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+
+# OS
+.DS_Store

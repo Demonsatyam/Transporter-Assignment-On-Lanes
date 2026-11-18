@@ -1,0 +1,19 @@
+services:
+  app:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    # DB_URL / DB_USERNAME / DB_PASSWORD come from backend/.env (see backend/.env.example).
+    env_file: ./backend/.env
+
+  # Optional local database: `docker compose --profile local-db up`
+  # and set DB_URL=jdbc:postgresql://db:5432/transporter, DB_USERNAME=postgres, DB_PASSWORD=postgres.
+  db:
+    image: postgres:16
+    profiles: ["local-db"]
+    environment:
+      POSTGRES_DB: transporter
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"

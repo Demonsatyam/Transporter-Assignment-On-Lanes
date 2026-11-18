@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "TransporterApplication",
+      "request": "launch",
+      "mainClass": "com.freightfox.transporter.TransporterApplication",
+      "projectName": "transporter-assignment",
+      "cwd": "${workspaceFolder}/backend"
+    }
+  ]
+}

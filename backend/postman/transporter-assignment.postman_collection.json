@@ -1,0 +1,210 @@
+{
+  "info": {
+    "name": "FreightFox Transporter Assignment",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Submit input - PDF Test Case 1",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/transporters/input",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "transporters",
+            "input"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "            {\n              \"lanes\": [\n                {\"id\": 1, \"origin\": \"Mumbai\", \"destination\": \"Delhi\"},\n                {\"id\": 2, \"origin\": \"Delhi\", \"destination\": \"Bangalore\"},\n                {\"id\": 3, \"origin\": \"Chennai\", \"destination\": \"Kolkata\"},\n                {\"id\": 4, \"origin\": \"Pune\", \"destination\": \"Hyderabad\"},\n                {\"id\": 5, \"origin\": \"Ahmedabad\", \"destination\": \"Jaipur\"}\n              ],\n              \"transporters\": [\n                {\"id\": 1, \"name\": \"Transporter T1\", \"laneQuotes\": [{\"laneId\": 1, \"quote\": 20835}, {\"laneId\": 2, \"quote\": 10512}, {\"laneId\": 3, \"quote\": 22105}, {\"laneId\": 4, \"quote\": 42481}, {\"laneId\": 5, \"quote\": 19862}]},\n                {\"id\": 2, \"name\": \"Transporter T2\", \"laneQuotes\": [{\"laneId\": 1, \"quote\": 48844}, {\"laneId\": 2, \"quote\": 31326}, {\"laneId\": 3, \"quote\": 18640}, {\"laneId\": 4, \"quote\": 45828}, {\"laneId\": 5, \"quote\": 18297}]},\n                {\"id\": 3, \"name\": \"Transporter T3\", \"laneQuotes\": [{\"laneId\": 1, \"quote\": 39020}, {\"laneId\": 2, \"quote\": 20648}, {\"laneId\": 3, \"quote\": 31438}, {\"laneId\": 4, \"quote\": 36447}, {\"laneId\": 5, \"quote\": 12789}]},\n                {\"id\": 4, \"name\": \"Transporter T4\", \"laneQuotes\": [{\"laneId\": 1, \"quote\": 14400}, {\"laneId\": 2, \"quote\": 44514}, {\"laneId\": 3, \"quote\": 14316}, {\"laneId\": 4, \"quote\": 10678}, {\"laneId\": 5, \"quote\": 13032}]},\n                {\"id\": 5, \"name\": \"Transporter T5\", \"laneQuotes\": [{\"laneId\": 1, \"quote\": 11601}, {\"laneId\": 2, \"quote\": 19760}, {\"laneId\": 3, \"quote\": 40870}, {\"laneId\": 4, \"quote\": 20635}, {\"laneId\": 5, \"quote\": 26421}]},\n                {\"id\": 6, \"name\": \"Transporter T6\", \"laneQuotes\": [{\"laneId\": 1, \"quote\": 35095}, {\"laneId\": 2, \"quote\": 12494}, {\"laneId\": 3, \"quote\": 17808}, {\"laneId\": 4, \"quote\": 36210}, {\"laneId\": 5, \"quote\": 39444}]},\n                {\"id\": 7, \"name\": \"Transporter T7\", \"laneQuotes\": [{\"laneId\": 1, \"quote\": 26070}, {\"laneId\": 2, \"quote\": 41098}, {\"laneId\": 3, \"quote\": 20932}, {\"laneId\": 4, \"quote\": 16897}, {\"laneId\": 5, \"quote\": 27938}]}\n              ]\n            }\n            "
+        }
+      }
+    },
+    {
+      "name": "2. Assignment - K=3 (expect 60139)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/transporters/assignment",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "transporters",
+            "assignment"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"maxTransporters\": 3\n}"
+        }
+      }
+    },
+    {
+      "name": "3. Submit input - PDF Test Case 2",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/transporters/input",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "transporters",
+            "input"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "            {\n              \"lanes\": [\n                {\"id\": 1, \"origin\": \"Chandigarh\", \"destination\": \"Shimla\"},\n                {\"id\": 2, \"origin\": \"Agra\", \"destination\": \"Kanpur\"},\n                {\"id\": 3, \"origin\": \"Varanasi\", \"destination\": \"Gorakhpur\"},\n                {\"id\": 4, \"origin\": \"Amritsar\", \"destination\": \"Ludhiana\"},\n                {\"id\": 5, \"origin\": \"Coimbatore\", \"destination\": \"Madurai\"}\n              ],\n              \"transporters\": [\n                {\"id\": 1, \"name\": \"Transporter X\", \"laneQuotes\": [{\"laneId\": 1, \"quote\": 1000}, {\"laneId\": 2, \"quote\": 1500}]},\n                {\"id\": 2, \"name\": \"Transporter Y\", \"laneQuotes\": [{\"laneId\": 3, \"quote\": 2000}, {\"laneId\": 4, \"quote\": 1800}]},\n                {\"id\": 3, \"name\": \"Transporter Z\", \"laneQuotes\": [{\"laneId\": 5, \"quote\": 1200}]},\n                {\"id\": 4, \"name\": \"Transporter W\", \"laneQuotes\": [{\"laneId\": 1, \"quote\": 1100}, {\"laneId\": 4, \"quote\": 1750}]}\n              ]\n            }\n            "
+        }
+      }
+    },
+    {
+      "name": "4. Assignment - K=2 (expect 409)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/transporters/assignment",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "transporters",
+            "assignment"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"maxTransporters\": 2\n}"
+        }
+      }
+    },
+    {
+      "name": "5. Assignment - K=4 (expect 7450)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/transporters/assignment",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "transporters",
+            "assignment"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"maxTransporters\": 4\n}"
+        }
+      }
+    },
+    {
+      "name": "6. Assignment - specific dataset",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/transporters/assignment",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "transporters",
+            "assignment"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"maxTransporters\": 3,\n  \"datasetId\": 1\n}"
+        }
+      }
+    },
+    {
+      "name": "7. Invalid input (expect 400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/transporters/input",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "transporters",
+            "input"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"lanes\": [{\"id\": 1, \"origin\": \"A\", \"destination\": \"B\"}],\n  \"transporters\": [{\"id\": 1, \"name\": \"T1\", \"laneQuotes\": [{\"laneId\": 9, \"quote\": -1}]}]\n}"
+        }
+      }
+    }
+  ]
+}

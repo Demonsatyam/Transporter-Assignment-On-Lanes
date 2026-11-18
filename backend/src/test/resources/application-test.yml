@@ -1,0 +1,11 @@
+# Integration tests run against a local, disposable PostgreSQL database (never the real one).
+spring:
+  datasource:
+    url: ${TEST_DB_URL:jdbc:postgresql://localhost:5432/transporter_test}
+    username: ${TEST_DB_USERNAME:${USER:postgres}}
+    password: ${TEST_DB_PASSWORD:}
+  flyway:
+    clean-disabled: false
+
+optimizer:
+  time-limit-seconds: 20
